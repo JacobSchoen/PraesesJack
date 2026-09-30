@@ -1,0 +1,43 @@
+@import 'tailwindcss';
+
+@theme {
+    --color-bg: #120821;
+    --color-panel: #db8b00;
+    --color-panel-raised: #2a1642;
+
+    --color-gold: #ffcc33;
+    --color-gold-dark: #4a3a10;
+    --color-hot: #ff5470;
+    --color-hot-dark: #4a1520;
+    --color-cyan: #4dd8ff;
+    --color-cyan-dark: #10394a;
+    --color-mint: #7bff8a;
+    --color-mint-dark: #12401c;
+
+    --color-text: #1a1a1a;
+    --color-text-dim: #f7f9fa;
+
+    --font-display: "Press Start 2P", sans-serif;
+    --font-body: "Press Start 2P", sans-serif;
+
+    --animate-wiggle: wiggle 0.5s ease-in-out infinite;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-color: #db8b00;
+    background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre-big.png");
+    color: var(--color-text);
+    font-family: var(--font-body);
+}
+
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg) translateY(0); }
+    50% { transform: rotate(3deg) translateY(-4px); }
+  }
