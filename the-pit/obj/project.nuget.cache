@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "SCM62EeQ5t8=",
+  "success": true,
+  "projectFilePath": "Z:\\PraesesJack\\the-pit\\the-pit.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\shesd\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.20\\microsoft.aspnetcore.openapi.9.0.20.nupkg.sha512",
+    "C:\\Users\\shesd\\.nuget\\packages\\microsoft.openapi\\1.6.30\\microsoft.openapi.1.6.30.nupkg.sha512"
+  ],
+  "logs": []
+}

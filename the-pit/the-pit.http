@@ -1,0 +1,6 @@
+@the_pit_HostAddress = http://localhost:5274
+
+GET {{the_pit_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
