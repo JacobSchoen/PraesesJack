@@ -32,7 +32,7 @@ public class BlackjackService : IBlackjackService
         if (game == null)
         {
             throw new KeyNotFoundException(
-                $"Game not found with ${gameId}"
+                $"Game not found with {gameId}"
             );
         }
 
@@ -51,7 +51,7 @@ public class BlackjackService : IBlackjackService
 
         game.Player.AddCard(game.Deck.Draw());
 
-        if (game.Player.Score() > 21)
+        if (game.Player.Score > 21)
         {
             game.Status = GameStatus.PlayerBust;
         }
@@ -65,20 +65,20 @@ public class BlackjackService : IBlackjackService
 
         game.Status = GameStatus.DealerTurn;
 
-        while (game.Dealer.Score() < 17)
+        while (game.Dealer.Score < 17)
         {
             game.Dealer.AddCard(game.Deck.Draw());
         }
 
-        if (game.Dealer.Score() > 21)
+        if (game.Dealer.Score > 21)
         {
             game.Status = GameStatus.PlayerWon;
         }
-        else if ( game.Dealer.Score() > game.Player.Score())
+        else if (game.Dealer.Score > game.Player.Score)
         {
-            game.Status = GameStatus.DealerWon; 
+            game.Status = GameStatus.DealerWon;
         }
-        else if (game.Dealer.Score() < game.Player.Score())
+        else if (game.Dealer.Score < game.Player.Score)
         {
             game.Status = GameStatus.PlayerWon;
         }

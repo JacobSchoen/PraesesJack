@@ -6,7 +6,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IBlackjackService, BlackjackService>();
+builder.Services.AddSingleton<IBlackjackService, BlackjackService>();
 
 var app = builder.Build();
 

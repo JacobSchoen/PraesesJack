@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "qXAVfuWILqg=",
+  "dgSpecHash": "bQama53hdZI=",
   "success": true,
   "projectFilePath": "Z:\\PraesesJack\\the-pit\\the-pit.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\shesd\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.20\\microsoft.aspnetcore.openapi.9.0.20.nupkg.sha512",
     "C:\\Users\\shesd\\.nuget\\packages\\microsoft.extensions.apidescription.server\\9.0.0\\microsoft.extensions.apidescription.server.9.0.0.nupkg.sha512",
     "C:\\Users\\shesd\\.nuget\\packages\\microsoft.openapi\\2.7.5\\microsoft.openapi.2.7.5.nupkg.sha512",
     "C:\\Users\\shesd\\.nuget\\packages\\swashbuckle.aspnetcore\\10.2.3\\swashbuckle.aspnetcore.10.2.3.nupkg.sha512",

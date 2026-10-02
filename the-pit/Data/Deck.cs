@@ -18,7 +18,6 @@ public class Deck
         {
             foreach (CardRank value in Enum.GetValues<CardRank>())
             {
-                Console.WriteLine(suit.ToString(), value.ToString());
                 Cards.Add(new Card
                 {
                     Suit = suit,

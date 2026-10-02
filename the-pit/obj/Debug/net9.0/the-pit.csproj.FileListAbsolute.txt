@@ -6,7 +6,6 @@ Z:\PraesesJack\the-pit\bin\Debug\net9.0\the-pit.deps.json
 Z:\PraesesJack\the-pit\bin\Debug\net9.0\the-pit.runtimeconfig.json
 Z:\PraesesJack\the-pit\bin\Debug\net9.0\the-pit.dll
 Z:\PraesesJack\the-pit\bin\Debug\net9.0\the-pit.pdb
-Z:\PraesesJack\the-pit\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
 Z:\PraesesJack\the-pit\bin\Debug\net9.0\Microsoft.OpenApi.dll
 Z:\PraesesJack\the-pit\obj\Debug\net9.0\the-pit.csproj.AssemblyReference.cache
 Z:\PraesesJack\the-pit\obj\Debug\net9.0\rpswa.dswa.cache.json
@@ -31,3 +30,6 @@ Z:\PraesesJack\the-pit\obj\Debug\net9.0\refint\the-pit.dll
 Z:\PraesesJack\the-pit\obj\Debug\net9.0\the-pit.pdb
 Z:\PraesesJack\the-pit\obj\Debug\net9.0\the-pit.genruntimeconfig.cache
 Z:\PraesesJack\the-pit\obj\Debug\net9.0\ref\the-pit.dll
+Z:\PraesesJack\the-pit\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+Z:\PraesesJack\the-pit\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+Z:\PraesesJack\the-pit\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
