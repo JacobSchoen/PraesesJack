@@ -2,10 +2,10 @@ using thePit.Models;
 
 namespace thePit.Service;
 
-public class IBlackjackService
+public interface IBlackjackService
 {
     Task<BlackjackGame> CreateGame();
-    Task<BlackjackGame> getGame(int gameId);
+    Task<BlackjackGame> GetGame(int gameId);
 
     Task<BlackjackGame> Hit(int gameId);
     Task<BlackjackGame> Stand(int gameId);
