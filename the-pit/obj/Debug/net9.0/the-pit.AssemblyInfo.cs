@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("the-pit")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+143a2a88f8dc0a417b5299c017e853bd8bb96d26")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d33b134ed51c4fbf5234401b0071e1e5095e237")]
 [assembly: System.Reflection.AssemblyProductAttribute("the-pit")]
 [assembly: System.Reflection.AssemblyTitleAttribute("the-pit")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

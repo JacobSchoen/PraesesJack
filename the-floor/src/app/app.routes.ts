@@ -11,7 +11,7 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/lobby/lobby').then((m) => m.Lobby),
     },
     {
-        path: 'gameTable',
+        path: 'gameTable/:id',
         loadComponent: () => import('./pages/game-table/game-table').then((m) => m.GameTable)
     }
 ];

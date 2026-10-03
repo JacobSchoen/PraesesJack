@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { Card } from '../../models/card.model';
+import { Card, CardSuit } from '../../models/card.interface';
 
 @Component({
   imports: [],
@@ -9,18 +9,17 @@ import { Card } from '../../models/card.model';
 })
 export class PlayingCard {
   card = input.required<Card>();
+  hidden = input<boolean>(false);
 
-   get suitSymbol(): string {
-    switch (this.card().suit) {
-      case 'hearts':
-        return '♥';
-      case 'diamonds':
-        return '♦';
-      case 'clubs':
-        return '♣';
-      case 'spades':
-        return '♠';
-    }
-  }
-  
+  private readonly suitSymbols: Record<CardSuit, string> = {
+  [CardSuit.Hearts]: '♥',
+  [CardSuit.Diamonds]: '♦',
+  [CardSuit.Spades]: '♠',
+  [CardSuit.Clubs]: '♣'
+};
+
+get suitSymbol(): string {
+  return this.suitSymbols[this.card().suit];
+}
+
 }

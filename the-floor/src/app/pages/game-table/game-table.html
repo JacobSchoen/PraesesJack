@@ -1,4 +1,15 @@
 <div>
-    <app-dealer />
-    <app-player />
+    @if (game(); as game) {
+    <app-dealer [hand]="game.dealer" [status]="gameStatus"/>
+    {{gameStatus}}
+    <app-player 
+        [hand]="game.player"
+        [status]="gameStatus"
+        (hit)="handlePlayerHit()"
+        (stand)="handlePlayerStand()"
+     />
+    } @else {
+        <p>Loading...</p>
+    }
+
 </div>

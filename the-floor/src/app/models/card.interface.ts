@@ -3,7 +3,12 @@ export interface Card {
     value: CardValue;
 }
 
-export type CardSuit = 'hearts' | 'diamonds' | 'spades' | 'clubs';
+export enum CardSuit {
+    Hearts,
+    Diamonds,
+    Spades,
+    Clubs
+}
 
 export type CardValue =
     'A' |
