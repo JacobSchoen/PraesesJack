@@ -8,8 +8,8 @@ import { Card, CardSuit } from '../../models/card.interface';
   templateUrl: './playing-card.html',
 })
 export class PlayingCard {
-  card = input.required<Card>();
-  hidden = input<boolean>(false);
+  public card = input.required<Card>();
+  public hidden = input<boolean>(false);
 
   private readonly suitSymbols: Record<CardSuit, string> = {
   [CardSuit.Hearts]: '♥',

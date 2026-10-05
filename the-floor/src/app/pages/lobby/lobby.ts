@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BlackjackService } from '../../services/blackjack-service';
+import { BlackjackGame } from '../../models/blackjackGame.interface';
 
 @Component({
   imports: [ReactiveFormsModule],
@@ -11,10 +12,10 @@ import { BlackjackService } from '../../services/blackjack-service';
   templateUrl: './lobby.html',
 })
 export class Lobby {
-  formBuilder = inject(FormBuilder);
-  router = inject(Router);
+  private formBuilder = inject(FormBuilder);
+  private router = inject(Router);
   private blackjackService = inject(BlackjackService);
-  game: any;
+  private game: BlackjackGame | null = null;
 
   createTable = this.formBuilder.nonNullable.group({
     name: ['', [Validators.required, Validators.minLength(1)]]

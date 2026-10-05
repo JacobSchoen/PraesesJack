@@ -6,9 +6,19 @@ public class Deck
 {
     public List<Card> Cards { get; set; } = [];
 
-    public Deck(int shoeNumber)
+    public Deck(int shoeNumber, IEnumerable<Card> dealtCards)
     {
         CreateDeck(shoeNumber);
+
+        foreach (var dealtCard in dealtCards)
+        {
+            var card = Cards.First(c =>
+                c.Value == dealtCard.Value &&
+                c.Suit == dealtCard.Suit);
+
+            Cards.Remove(card);
+        }
+        
         Shuffle();
     }
 

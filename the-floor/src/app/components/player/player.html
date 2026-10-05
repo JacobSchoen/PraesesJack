@@ -1,6 +1,7 @@
 <div class="flex flex-col items-center py-6 text-text-dim">
-    <p>player INSERT NAME HERE</p>
-    <div class="flex flex-row">
+    <!-- need to insert player name here  -->
+    <p class="py-2">Player</p>
+    <div class="flex flex-row py-2">
         @for (card of hand().cards; track card; let i = $index) {
         <app-playing-card [card]="{ value: card.value, suit: card.suit}"
             [style.transform]="'rotate(' + fanAngle(i, hand().cards.length) + 'deg) translateY(var(--ty, 0px))'" />
@@ -8,11 +9,11 @@
     </div>
 
 
-    <div>
+    <div class="py-2">
         Score: {{hand().score}}
     </div>
-    <div>
-        <button (click)="hit.emit()" [disabled]="status() !== 'PlayerTurn'">HIT</button>
-        <button (click)="stand.emit()" [disabled]="status() !== 'PlayerTurn'">Stand</button>
+    <div class="p-2">
+        <button class="cursor-pointer mx-4 bg-panel rounded-lg border border-black p-2 text-text text-lg" (click)="hit.emit()" [disabled]="status() !== 'PlayerTurn'">HIT</button>
+        <button class="cursor-pointer mx-4 bg-panel rounded-lg border border-black p-2 text-text text-lg" (click)="stand.emit()" [disabled]="status() !== 'PlayerTurn'">Stand</button>
     </div>
 </div>

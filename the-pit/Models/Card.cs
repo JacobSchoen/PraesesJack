@@ -1,7 +1,13 @@
 namespace thePit.Models;
+using System.Text.Json.Serialization;
 
 public class Card
 {
+    public int Id { get; set; }
+    public int HandId { get; set; }
+
+    [JsonIgnore]
+    public Hand Hand { get; set; } = null!;
     public CardRank Value { get; set; }
     public CardSuit Suit { get; set; }
 }
@@ -27,6 +33,6 @@ public enum CardRank
     Nine = 9,
     Ten = 10,
     Jack = 10,
-    Queen =10,
+    Queen = 10,
     King = 10,
 }

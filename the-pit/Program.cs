@@ -1,6 +1,13 @@
+using Microsoft.EntityFrameworkCore;
 using thePit.Service;
+using thePit.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<GameDbContext>(options =>
+    options.UseNpgsql(
+        builder.Configuration.GetConnectionString("DefaultConnection")
+    ));
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -17,7 +24,7 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.Services.AddSingleton<IBlackjackService, BlackjackService>();
+builder.Services.AddScoped<IBlackjackService, BlackjackService>();
 
 var app = builder.Build();
 

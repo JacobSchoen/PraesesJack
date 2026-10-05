@@ -1,0 +1,11 @@
+<div class="flex flex-col items-center py-6 text-text">
+    @if (resultStatus()){
+       <section class="flex flex-col items-center rounded-2xl border border-gold bg-panel p-6">
+        <p>{{resultsMessage()}}</p>
+
+        <button (click)="newGame.emit()"  class="cursor-pointer p-2 mt-2 rounded-full bg-gold py-2 shadow-md shadow-bg">
+            Play again?
+        </button>
+    </section> 
+    }
+</div>

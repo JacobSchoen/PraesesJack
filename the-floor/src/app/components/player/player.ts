@@ -10,13 +10,13 @@ import { GameStatus } from '../../models/blackjackGame.interface';
   templateUrl: './player.html',
 })
 export class Player {
-  hand = input.required<Hand>()
-  status = input.required<string>();
+  public hand = input.required<Hand>()
+  public status = input.required<string>();
 
-  hit = output<void>();
-  stand = output<void>();
+  public hit = output<void>();
+  public stand = output<void>();
 
-  protected fanAngle(index: number, total: number): number {
+  public fanAngle(index: number, total: number): number {
     if (total <= 1) return 0;
     const maxStepDeg = 8;
     const step = Math.min(maxStepDeg, 36 / (total - 1));

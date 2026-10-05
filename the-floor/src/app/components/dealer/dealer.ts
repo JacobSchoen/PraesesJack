@@ -11,8 +11,8 @@ import { GameStatus } from '../../models/blackjackGame.interface';
   templateUrl: './dealer.html',
 })
 export class Dealer {
-  hand = input.required<Hand>();
-  status = input.required<string>();
+  public hand = input.required<Hand>();
+  public status = input.required<string>();
 
   protected fanAngle(index: number, total: number): number {
     if (total <= 1) return 0;

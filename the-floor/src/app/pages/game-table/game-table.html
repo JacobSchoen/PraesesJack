@@ -1,15 +1,10 @@
 <div>
     @if (game(); as game) {
-    <app-dealer [hand]="game.dealer" [status]="gameStatus"/>
-    {{gameStatus}}
-    <app-player 
-        [hand]="game.player"
-        [status]="gameStatus"
-        (hit)="handlePlayerHit()"
-        (stand)="handlePlayerStand()"
-     />
+    <app-dealer [hand]="game.dealer" [status]="gameStatus" />
+    <app-game-results [status]="gameStatus" (newGame)="handleNewGame()"/>
+    <app-player [hand]="game.player" [status]="gameStatus" (hit)="handlePlayerHit()" (stand)="handlePlayerStand()" />
     } @else {
-        <p>Loading...</p>
+    <p>Loading...</p>
     }
 
 </div>

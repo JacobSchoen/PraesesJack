@@ -1,33 +1,59 @@
+using Microsoft.EntityFrameworkCore;
+using thePit.Data;
 using thePit.Models;
 
 namespace thePit.Service;
 
 public class BlackjackService : IBlackjackService
 {
-    private readonly List<BlackjackGame> _games = [];
+    private readonly GameDbContext _dbContext;
 
-    public Task<BlackjackGame> CreateGame()
+    public BlackjackService(GameDbContext dbContext)
+    {
+        _dbContext = dbContext;
+    }
+
+    public async Task<BlackjackGame> CreateGame()
     {
         var game = new BlackjackGame
         {
-            GameId = Random.Shared.Next(1, 1000),
-            Status = GameStatus.PlayerTurn
+            Status = GameStatus.PlayerTurn,
+
+            Hands =
+            [
+                new Hand
+                {
+                    Type = HandType.Player
+                },
+
+                new Hand
+                {
+                    Type = HandType.Dealer
+                }
+            ]
         };
 
-        game.Player.AddCard(game.Deck.Draw());
-        game.Dealer.AddCard(game.Deck.Draw());
+        var deck = new Deck(1, []);
 
-        game.Player.AddCard(game.Deck.Draw());
-        game.Dealer.AddCard(game.Deck.Draw());
+        game.Player.AddCard(deck.Draw());
+        game.Dealer.AddCard(deck.Draw());
 
-        _games.Add(game);
+        game.Player.AddCard(deck.Draw());
+        game.Dealer.AddCard(deck.Draw());
 
-        return Task.FromResult(game);
+        _dbContext.Games.Add(game);
+
+        await _dbContext.SaveChangesAsync();
+
+        return game;
     }
 
-    public Task<BlackjackGame> GetGame(int gameId)
+    public async Task<BlackjackGame> GetGame(int gameId)
     {
-        var game = _games.FirstOrDefault(g => g.GameId == gameId);
+        var game = await _dbContext.Games
+            .Include(g => g.Hands)
+            .ThenInclude(h => h.Cards)
+            .FirstOrDefaultAsync(g => g.GameId == gameId);
 
         if (game == null)
         {
@@ -36,7 +62,7 @@ public class BlackjackService : IBlackjackService
             );
         }
 
-        return Task.FromResult(game);
+        return game;
     }
 
     public async Task<BlackjackGame> Hit(int gameId)
@@ -49,12 +75,16 @@ public class BlackjackService : IBlackjackService
                 "Not Players Turn");
         }
 
-        game.Player.AddCard(game.Deck.Draw());
+        var deck = CreateRemainingDeck(game);
+
+        game.Player.AddCard(deck.Draw());
 
         if (game.Player.Score > 21)
         {
             game.Status = GameStatus.PlayerBust;
         }
+
+        await _dbContext.SaveChangesAsync();
 
         return game;
     }
@@ -65,9 +95,11 @@ public class BlackjackService : IBlackjackService
 
         game.Status = GameStatus.DealerTurn;
 
+        var deck = CreateRemainingDeck(game);
+
         while (game.Dealer.Score < 17)
         {
-            game.Dealer.AddCard(game.Deck.Draw());
+            game.Dealer.AddCard(deck.Draw());
         }
 
         if (game.Dealer.Score > 21)
@@ -87,6 +119,17 @@ public class BlackjackService : IBlackjackService
             game.Status = GameStatus.Tie;
         }
 
+        await _dbContext.SaveChangesAsync();
+
         return game;
+    }
+
+    private Deck CreateRemainingDeck(BlackjackGame game)
+    {
+        var dealtCards = game.Player.Cards
+            .Concat(game.Dealer.Cards)
+            .ToList();
+
+        return new Deck(1, dealtCards);
     }
 }
