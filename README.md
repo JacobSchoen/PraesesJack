@@ -60,13 +60,13 @@ docker run --name thepit-postgres `
 ```
 
 # Future Feature List
--MutiPlayer
-    -Update to include a player name
--Betting(hey without this currently its kid friendly!)
--Offer Insurance
--Add a game history display and save game outcomes
--splitting of cards
--unit tests
--background music 
+- MutiPlayer
+    - Update to include a player name
+- Betting(hey without this currently its kid friendly!)
+- Offer Insurance
+- Add a game history display and save game outcomes
+- splitting of cards
+- unit tests
+- background music 
 -smooth card drawing animation
 -selection of amount of decks in shoe
